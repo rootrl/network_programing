@@ -8,7 +8,7 @@
 #include <errno.h>
 #include <stdarg.h>  
 
-# define MESSAGE_SIZE 102400
+# define MESSAGE_SIZE 1024000
 
 void error(int status, int err, char *fmt, ...) {
     va_list ap;
@@ -77,7 +77,7 @@ int main(int argc, char **argv) {
 	bzero(&servaddr, sizeof(servaddr));
 
 	servaddr.sin_family = AF_INET;
-	servaddr.sin_port = htons(123456);
+	servaddr.sin_port = htons(12345);
 	inet_pton(AF_INET, argv[1], &servaddr.sin_addr);
 	int connect_rt = connect(sockfd, (struct sockaddr *) &servaddr, sizeof(servaddr));
 
